@@ -34,8 +34,8 @@ fun BodyContent(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
         Row {
             RegionCosta(navController)
-            RegionSierra()
-            RegionSelva()
+            RegionSierra(navController)
+            RegionSelva(navController)
         }
     }
 }
@@ -47,7 +47,7 @@ fun RegionCosta(navController: NavController){
         elevation = 4.dp,
         modifier = Modifier.padding(5.dp),
         onClick = {
-            navController.navigate(route = AppScreens.PlatosScreen.route)
+            navController.navigate(route = AppScreens.PlatosScreen.route + "/Costa")
         }
         ) {
 
@@ -63,13 +63,16 @@ fun RegionCosta(navController: NavController){
         }
     }
 }
-
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun RegionSierra(){
+fun RegionSierra(navController: NavController){
     Card(
         shape = RoundedCornerShape(30),
         elevation = 4.dp,
-        modifier = Modifier.padding(5.dp)
+        modifier = Modifier.padding(5.dp),
+        onClick = {
+            navController.navigate(route = AppScreens.PlatosScreen.route + "/Sierra")
+        }
     ) {
 
         Column(
@@ -84,14 +87,16 @@ fun RegionSierra(){
         }
     }
 }
-
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun RegionSelva(){
+fun RegionSelva(navController: NavController){
     Card(
         shape = RoundedCornerShape(30),
         elevation = 4.dp,
         modifier = Modifier.padding(5.dp),
-
+        onClick = {
+            navController.navigate(route = AppScreens.PlatosScreen.route + "/Selva")
+        }
     ) {
 
         Column(
